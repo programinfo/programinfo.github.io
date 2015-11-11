@@ -391,10 +391,11 @@ $(function () {
 					articledata.articleurl="http://"+$("#add-articleurl").val().replace(/.*\/\//,"");
 				
 					articledata.codelanguage=$("input[type='radio'][name='favoritecolor']:checked").val()||""; 
-					tmpkey=[];
+				tmpkey=[];
 					articledata.articletype=[];
 				$("input[type='checkbox'][name='add-articlekeyword']:checked").each(function(){tmpkey[this.value.replace(/\s/g,"")]=1;});
-				articledata.articletype=tmpkey;
+				for(j in tmpkey)if(j!="")articledata.articletype.push(j);
+			
 				
 				keyword=[];
 				articledata.keyword=[];
