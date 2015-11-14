@@ -558,9 +558,9 @@ $(function () {
             <div data-role="header" data-position="fixed"  >
 				<h1>程序员小站</h1>
 				<a href="#add" data-role="button" class="ui-btn-right" data-icon="search" style="float:right">分享网站</a>
-				<a href="#addarticle" data-role="button" class="ui-btn-right" data-icon="search"  style="float:right">分享文章</a>
-				<a href="#registerpage" data-role="button" class="ui-btn-right" data-icon="search" style="float:right">注册</a>
-				<a href="#loginpage" data-role="button" class="ui-btn-right" data-icon="search" style="float:right">登陆</a>
+				<a href="#addarticle" data-role="button" class="ui-btn-right" data-icon="search"   style="float:right">分享文章</a>
+				<a href="#search" data-role="button" class="ui-btn-right" data-icon="search"  style="float:right">注册</a>
+				<a href="#search" data-role="button" class="ui-btn-right" data-icon="search" style="float:right">登陆</a>
 			</div>
               <div data-role="content">
               	<div class="ui-grid-solo">
@@ -1079,71 +1079,8 @@ $(function () {
             </div>
         </div>
     </div> 
-     <div data-role="page" id="loginpage">
-            <div data-role="header" data-position="fixed"  >
-				<h1>程序员小站-登录</h1>
-				<a href="#search" data-role="button" class="ui-btn-right" data-icon="search" >搜索</a>
-			</div>
-              <div data-role="content">
-             <div data-role="fieldcontain">
-					<label for="user-loginname">用户名：</label>
-					<input type="text" name="user-loginname" id="user-loginname">
-				</div>
-				
-				<div data-role="fieldcontain">
-					<label for="user-loginpasswordword">密码：</label>
-					<input type="text" name="user-loginpasswordword" id="user-loginpasswordword">
-				</div>
-                      <button id="loginbtn">登录</button>
-                      
-                    </div>
-            
-			<div data-role="footer" data-position="fixed" >
-				<div data-role="navbar">
-					<ul>
-                        <li><a href="#frequentlyuusedsites" data-icon="home" >常用</a></li>
-						<li><a href="#home" data-icon="home" >主页</a></li>
-						<li><a href="#add" data-icon="plus" >分享</a></li>
-                       <li><a href="#doconline" data-icon="info" data-transition="slide">在线文档</a></li>
-                          <li><a href="#articlelit" data-icon="info" data-transition="slide">文章列表</a></li>
-					</ul>
-				</div>
-			</div>
-        </div>
-               <div data-role="page" id="registerpage">
-            <div data-role="header" data-position="fixed"  >
-				<h1>程序员小站-注册</h1>
-				<a href="#search" data-role="button" class="ui-btn-right" data-icon="search" >搜索</a>
-			</div>
-              <div data-role="content">
-             <div data-role="fieldcontain">
-					<label for="user-registername">用户名：</label>
-					<input type="text" name="user-registername" id="user-registername">
-				</div>
-				
-				<div data-role="fieldcontain">
-					<label for="user-registerkeyword">密码：</label>
-					<input type="text" name="user-registerpasswordword" id="user-registerpasswordword">
-				</div>
-                      <button id="registerbtn">注册</button>
-                      
-                    </div>
-            
-			<div data-role="footer" data-position="fixed" >
-				<div data-role="navbar">
-					<ul>
-                        <li><a href="#frequentlyuusedsites" data-icon="home" >常用</a></li>
-						<li><a href="#home" data-icon="home" >主页</a></li>
-						<li><a href="#add" data-icon="plus" >分享</a></li>
-                       <li><a href="#doconline" data-icon="info" data-transition="slide">在线文档</a></li>
-                          <li><a href="#articlelit" data-icon="info" data-transition="slide">文章列表</a></li>
-					</ul>
-				</div>
-			</div>
-        </div>     
-	<script>
-	
-	function findSoft(){
+    <script>
+    function findSoft(){
 				var data={};
 				data.articletype="软件"
 				if($('#favoritecolor1 .ui-radio-on').text()!="")data.codelanguage=$('#favoritecolor1 .ui-radio-on').text();
@@ -1171,9 +1108,103 @@ $(function () {
 				bmobTool.setLimit(data);
 				bmobTool.findarticle();
 });
-$(document).on("pageload",function(event,data){
-
+    </script>
+     <div data-role="page" id="loginpage">
+            <div data-role="header" data-position="fixed"  >
+				<h1>程序员小站-登录</h1>
+				<a href="#search" data-role="button" class="ui-btn-right" data-icon="search" >搜索</a>
+			</div>
+              <div data-role="content">
+             <div data-role="fieldcontain">
+					<label for="user-loginname">用户名：</label>
+					<input type="text" name="user-loginname" id="user-loginname">
+				</div>
+				
+				<div data-role="fieldcontain">
+					<label for="user-loginpasswordword">密码：</label>
+					<input type="text" name="user-loginpasswordword" id="user-loginpasswordword">
+				</div>
+                      <button id="loginbtn" onclick="Login()">登录</button>
+                      
+                    </div>
+            
+			<div data-role="footer" data-position="fixed" >
+				<div data-role="navbar">
+					<ul>
+                        <li><a href="#frequentlyuusedsites" data-icon="home" >常用</a></li>
+						<li><a href="#home" data-icon="home" >主页</a></li>
+						<li><a href="#add" data-icon="plus" >分享</a></li>
+                       <li><a href="#doconline" data-icon="info" data-transition="slide">在线文档</a></li>
+                          <li><a href="#articlelit" data-icon="info" data-transition="slide">文章列表</a></li>
+					</ul>
+				</div>
+			</div>
+        </div>
+        <script>
+        function 	Login(){
+var user = new Bmob.User();
+var username=$("#user-loginname").val();
+var password=$("#user-registerpasswordword").val();
+Bmob.User.logIn(username,password, {
+  success: function(user) {
+    // Do stuff after successful login.
+  },
+  error: function(user, error) {
+    // The login failed. Check error to see why.
+  }
 });
+	}
+        </script>
+               <div data-role="page" id="registerpage">
+            <div data-role="header" data-position="fixed"  >
+				<h1>程序员小站-注册</h1>
+				<a href="#search" data-role="button" class="ui-btn-right" data-icon="search" >搜索</a>
+			</div>
+              <div data-role="content">
+             <div data-role="fieldcontain">
+					<label for="user-registername">用户名：</label>
+					<input type="text" name="user-registername" id="user-registername">
+				</div>
+				
+				<div data-role="fieldcontain">
+					<label for="user-registerkeyword">密码：</label>
+					<input type="text" name="user-registerpasswordword" id="user-registerpasswordword">
+				</div>
+                      <button id="registerbtn"  onclick="Register()">注册</button>
+                      
+                    </div>
+            
+			<div data-role="footer" data-position="fixed" >
+				<div data-role="navbar">
+					<ul>
+                        <li><a href="#frequentlyuusedsites" data-icon="home" >常用</a></li>
+						<li><a href="#home" data-icon="home" >主页</a></li>
+						<li><a href="#add" data-icon="plus" >分享</a></li>
+                       <li><a href="#doconline" data-icon="info" data-transition="slide">在线文档</a></li>
+                          <li><a href="#articlelit" data-icon="info" data-transition="slide">文章列表</a></li>
+					</ul>
+				</div>
+			</div>
+        </div>     
+			
+	<script>
+	function Register(){
+var user = new Bmob.User();
+var username=$("#user-registername").val();
+var password=$("#user-loginpasswordword").val();
+user.set("username", username);
+user.set("password", password);
+user.signUp(null, {
+  success: function(user) {
+   
+  },
+  error: function(user, error) {
+    // Show the error message somewhere and let the user try again.
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
+	
+	
 var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256749878'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256749878' type='text/javascript'%3E%3C/script%3E"));
 	</script>
 	
