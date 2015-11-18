@@ -1265,6 +1265,11 @@ if (currentUser) {
 			</div>
         </div>
         <script>
+        $(document).on("pageinit","#loginpage",function(){
+
+   // 此处是 jQuery 事件...
+
+});
         function 	Login(){
     	Bmob.initialize("39dfc34280e39b5411c3e450466da0f2", "4b59ff42a72875986c89551344a2b218");
 var user = new Bmob.User();
