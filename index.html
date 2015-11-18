@@ -416,7 +416,7 @@ $(function () {
 					var currentUser = Bmob.User.current();
 if (currentUser) {
     // do stuff with the user
-     var  userdata={};
+     var  userdata={};userdata.userid=currentUser.objectId;
 				      	userdata.contentname=$("#add-articlename").val();
 				      	userdata.recordtype="1";
 					userdata.articleurl="http://"+$("#add-articleurl").val().replace(/.*\/\//,"");
@@ -542,7 +542,7 @@ if (currentUser) {
 								var currentUser = Bmob.User.current();
 if (currentUser) {
     // do stuff with the user
-     var  userdata={};
+     var  userdata={};userdata.userid=currentUser.objectId;
 				      	userdata.contentname=object.get("articletitle");
 				      	userdata.recordtype="2";
 					userdata.articleurl=object.get("articleurl");
