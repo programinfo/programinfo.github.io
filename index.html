@@ -1245,6 +1245,7 @@ if (currentUser) {
         </div>
         <script>
         function 	Login(){
+    	Bmob.initialize("39dfc34280e39b5411c3e450466da0f2", "4b59ff42a72875986c89551344a2b218");
 var user = new Bmob.User();
 var username=$("#user-loginname").val();
 var password=$("#user-loginpasswordword").val();
@@ -1299,6 +1300,7 @@ Bmob.User.logIn(username,password, {
 			
 	<script>
 	function Register(){
+	Bmob.initialize("39dfc34280e39b5411c3e450466da0f2", "4b59ff42a72875986c89551344a2b218");
 var user = new Bmob.User();
 var username=$("#user-registername").val();
 var password=$("#user-registerpasswordword").val();
