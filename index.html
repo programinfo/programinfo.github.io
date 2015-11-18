@@ -265,6 +265,7 @@ $(function () {
 				Bmob.initialize("39dfc34280e39b5411c3e450466da0f2", "4b59ff42a72875986c89551344a2b218");
 				var info=Bmob.Object.extend("test");
 			        var articleinfo=Bmob.Object.extend("articlelisttable");
+			         var userarticleorsite=Bmob.Object.extend("userarticleorsite");
 				var o={};
 				var lock=false,update=0,total=0;
 				o.maxPage=0;//提交锁，更新时间，结果数，最大页数
@@ -412,6 +413,22 @@ $(function () {
 						success:function(){homeInfo("分享成功");lock=false;},
 						error:function(){homeInfo("分享失败");lock=false;}
 					});
+					var currentUser = Bmob.User.current();
+if (currentUser) {
+    // do stuff with the user
+     var  userdata=={};
+				      	userdata.contentname=$("#add-articlename").val();
+				      	userdata.recordtype="1";
+					userdata.articleurl="http://"+$("#add-articleurl").val().replace(/.*\/\//,"");
+				      var useraddarticle=new	userarticleorsite();
+				      	useraddarticle.save(userdata, {
+						success:function(){homeInfo("分享成功");lock=false;},
+						error:function(){homeInfo("分享失败");lock=false;}
+					});
+} else {
+    // show the signup or login page
+}
+				      
 				}
 				o.findweb=function(){
 					//设定网站限制
