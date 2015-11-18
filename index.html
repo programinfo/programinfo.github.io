@@ -536,6 +536,27 @@ if (currentUser) {
 							$(dom1).append(dom2);;
 						}
 					}
+						dom3=document.createElement("a");
+						dom3.onclick=function()
+						{
+								var currentUser = Bmob.User.current();
+if (currentUser) {
+    // do stuff with the user
+     var  userdata={};
+				      	userdata.contentname=object.get("articletitle");
+				      	userdata.recordtype="2";
+					userdata.articleurl=object.get("articleurl");
+				      var useraddarticle=new	userarticleorsite();
+				      	useraddarticle.save(userdata, {
+						success:function(){  alert("收藏成功");;lock=false;},
+						error:function(){homeInfo("收藏失败");lock=false;}
+					});
+} else {
+   alert("请先登录");
+}
+						};
+						$(dom3).text("收藏:");
+						$(dom1).append(dom3);;
 					//dom1=document.createElement("p");
 					//$(dom1).attr("class","ui-li-aside");
 					//$(dom1).text(object.updatedAt);
