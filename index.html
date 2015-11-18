@@ -1192,7 +1192,7 @@ $(function () {
 				</div>
 			</div>
               <div data-role="content">
-             <div data-role="fieldcontain">
+             <div data-role="fieldcontain" >
 					<label for="user-loginname">用户名：</label>
 					<input type="text" name="user-loginname" id="user-loginname">
 				</div>
@@ -1202,7 +1202,15 @@ $(function () {
 					<input type="text" name="user-loginpasswordword" id="user-loginpasswordword">
 				</div>
                       <button id="loginbtn" onclick="Login()">登录</button>
-                      
+                      <div id="userloginedarea">
+                      	<div data-role="controlgroup" data-type="horizontal" class="ui-btn-right">
+                      	    <input type="button"  value="收藏的文章" onclick=""></input>
+                      	     <input type="button"  value="分享/发表的文章" onclick=""></input>
+                      	      <input type="button"  value="收藏的网站" onclick=""></input>
+                      	       <input type="button"  value="收藏/创建的网站" onclick=""></input>
+                      	 </div>
+                      	  <ul data-role="listview" data-inset="true" id="shoucangarticleList"></ul>
+                      </div>
                     </div>
             
 		<div data-role="footer" data-position="fixed" >
