@@ -430,6 +430,46 @@ if (currentUser) {
 }
 				      
 				}
+				o.queryshareandfavorator=function)(str)
+				{
+					var query = new Bmob.Query(userarticleorsite);
+query.equalTo("userid", str); 
+// 查询所有数据
+query.find({
+    success: function(results) {
+        alert("共查询到 " + results.length + " 条记录");
+        // 循环处理查询到的数据
+        for (var i = 0; i < results.length; i++) {
+        var object = results[i];
+        	var tmpli,tmpa,dom1,dom2;
+					tmpli=document.createElement("li");
+					tmpa=document.createElement("a");
+					$(tmpa).attr("href",object.get("articleurl")||"javascript:void(0);");
+					$(tmpa).attr("target","_blank");
+					dom1=document.createElement("h2");
+					$(dom1).text(object.get("articletitle")||"站点未知");
+					$(tmpa).append(dom1);
+					//dom1=document.createElement("p");
+				//	dom2=document.createElement("b");
+				//	$(dom2).text("网址:"+object.get("articleurl"));
+					//$(dom2).text("作者:"+object.get("author"));
+				//	$(dom1).append(dom2);
+				//	$(tmpa).append(dom1);
+					//$(tmpa).append("<br>");
+				//	dom1=document.createElement("p");
+				//	$(dom1).text("关键词:");
+					$(tmpa).append(dom1);
+					$(tmpli).append(tmpa);
+					$("#shoucangarticleList").append(tmpli);
+      //  alert(object.id + ' - ' + object.get('playerName'));
+        }
+    },
+    error: function(error) {
+        alert("查询失败: " + error.code + " " + error.message);
+    }
+});
+				}
+				
 				o.findweb=function(){
 					//设定网站限制
 					var findquery = new Bmob.Query(info)
@@ -509,6 +549,7 @@ if (currentUser) {
 					});
 					$.mobile.changePage("#articlelit");
 				};
+			
 				var buildArticleItem=function(object){
 					var tmpli,tmpa,dom1,dom2;
 					tmpli=document.createElement("li");
@@ -1266,9 +1307,15 @@ if (currentUser) {
         </div>
         <script>
         $(document).on("pageinit","#loginpage",function(){
-
+var currentUser = Bmob.User.current();
+if (currentUser) {
+bmobTool.queryshareandfavorator(currentUser.objectid);
+  }
+  else
+  {
+  }
    // 此处是 jQuery 事件...
-
+bmobTool.queryshareandfavorator();
 });
         function 	Login(){
     	Bmob.initialize("39dfc34280e39b5411c3e450466da0f2", "4b59ff42a72875986c89551344a2b218");
