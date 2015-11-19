@@ -416,7 +416,7 @@ $(function () {
 					var currentUser = Bmob.User.current();
 if (currentUser) {
     // do stuff with the user
-     var  userdata={};userdata.userid=currentUser.objectId;
+     var  userdata={};userdata.userid=currentUser.id;
 				      	userdata.contentname=$("#add-articlename").val();
 				      	userdata.recordtype="1";
 					userdata.articleurl="http://"+$("#add-articleurl").val().replace(/.*\/\//,"");
@@ -583,7 +583,7 @@ query.find({
 								var currentUser = Bmob.User.current();
 if (currentUser) {
     // do stuff with the user
-     var  userdata={};userdata.userid=currentUser.objectId;
+     var  userdata={};userdata.userid=currentUser.id;
 				      	userdata.contentname=object.get("articletitle");
 				      	userdata.recordtype="2";
 					userdata.articleurl=object.get("articleurl");
