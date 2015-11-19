@@ -1309,7 +1309,7 @@ if (currentUser) {
         $(document).on("pageinit","#loginpage",function(){
 var currentUser = Bmob.User.current();
 if (currentUser) {
-bmobTool.queryshareandfavorator(currentUser.objectId);
+bmobTool.queryshareandfavorator(currentUser.id);
   }
   else
   {
