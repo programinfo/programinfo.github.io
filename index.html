@@ -447,7 +447,7 @@ query.find({
 					$(tmpa).attr("href",object.get("articleurl")||"javascript:void(0);");
 					$(tmpa).attr("target","_blank");
 					dom1=document.createElement("h2");
-					$(dom1).text(object.get("articletitle")||"站点未知");
+					$(dom1).text(object.get("contentname")||"站点未知");
 					$(tmpa).append(dom1);
 					//dom1=document.createElement("p");
 				//	dom2=document.createElement("b");
@@ -1309,7 +1309,7 @@ if (currentUser) {
         $(document).on("pageinit","#loginpage",function(){
 var currentUser = Bmob.User.current();
 if (currentUser) {
-bmobTool.queryshareandfavorator(currentUser.objectid);
+bmobTool.queryshareandfavorator(currentUser.objectId);
   }
   else
   {
