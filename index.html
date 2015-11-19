@@ -316,6 +316,27 @@ $(function () {
 							o.findweb();
 						}})(object.get("keyword")[i]));
 					}
+						dom3=document.createElement("a");
+						dom3.onclick=function()
+						{
+								var currentUser = Bmob.User.current();
+if (currentUser) {
+    // do stuff with the user
+     var  userdata={};userdata.userid=currentUser.id;
+				      	userdata.contentname=object.get("name");
+				      	userdata.recordtype="4";
+					userdata.articleurl=object.get("url");
+				      var useraddarticle=new	userarticleorsite();
+				      	useraddarticle.save(userdata, {
+						success:function(){  alert("收藏成功");;lock=false;},
+						error:function(){homeInfo("收藏失败");lock=false;}
+					});
+} else {
+   alert("请先登录");
+}
+						};
+						$(dom3).text("收藏");
+						$(dom1).append(dom3);;
 					dom1=document.createElement("p");
 					//$(dom1).attr("class","ui-li-aside");
 					$(dom1).text(object.updatedAt);
@@ -383,6 +404,21 @@ $(function () {
 						success:function(){homeInfo("分享成功");lock=false;},
 						error:function(){homeInfo("分享失败");lock=false;}
 					});
+						var currentUser = Bmob.User.current();
+if (currentUser) {
+    // do stuff with the user
+     var  userdata={};userdata.userid=currentUser.id;
+				      	userdata.contentname=$("#add-name").val();
+				      	userdata.recordtype="3";
+					userdata.articleurl="http://"+$("#add-url").val().replace(/.*\/\//,"");
+				      var useraddarticle=new	userarticleorsite();
+				      	useraddarticle.save(userdata, {
+						success:function(){homeInfo("分享成功");lock=false;},
+						error:function(){homeInfo("分享失败");lock=false;}
+					});
+} else {
+    // show the signup or login page
+}
 				}
                                  o.addarticle=function(){
 					if(lock)return;
